@@ -1,3 +1,5 @@
+@Library('https://github.com/devbyaccident/demo-shared-pipeline')
+
 pipeline {
     agent any
 
@@ -7,16 +9,12 @@ pipeline {
                 echo "$GIT_BRANCH"
             }
         }
-        stage('Docker Build') {
+        stage('call hello world from a shared library') {
          steps {
-            pwsh(script: 'docker images -a')
-            pwsh(script: """
-               cd azure-vote/
-               docker images -a
-               docker build -t jenkins-pipeline .
-               docker images -a
-               cd ..
-            """)
+           script
+           {
+           helloWorld()
+           }
          }
       }
     }
