@@ -1,5 +1,9 @@
 @Library('https://github.com/devbyaccident/demo-shared-pipeline')
 
+echoPipeline
+{
+message="I tried to msg 1000times."
+}
 pipeline {
     agent any
 
