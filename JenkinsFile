@@ -1,4 +1,3 @@
-@Library('https://github.com/devbyaccident/demo-shared-pipeline')_
 
 
 pipeline {
@@ -12,10 +11,7 @@ pipeline {
         }
         stage('call hello world from a shared library') {
          steps {
-           script
-           {
-           helloWorld()
-           }
+          echo "Hello World"
          }
       }
     }
